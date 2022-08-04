@@ -19,6 +19,7 @@
 import {ReadBuffer, WriteBuffer} from "../primitives/buffer";
 import {ICodec, ScalarCodec} from "./ifaces";
 import {InvalidArgumentError} from "../errors";
+import { Buffer } from "buffer";
 
 function UUIDBufferFromString(uuid: string): Buffer {
   let uuidClean = uuid;

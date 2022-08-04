@@ -44,6 +44,7 @@ import * as chars from "./primitives/chars";
 import Event from "./primitives/event";
 import LRU from "./primitives/lru";
 import {Session} from "./options";
+import { Buffer } from "buffer";
 
 export const PROTO_VER: ProtocolVersion = [1, 0];
 export const PROTO_VER_MIN: ProtocolVersion = [0, 9];

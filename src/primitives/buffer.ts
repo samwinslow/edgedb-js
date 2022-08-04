@@ -21,6 +21,7 @@ import {RingBuffer} from "./ring";
 import * as bi from "./bigint";
 import * as compat from "../compat";
 import {LegacyHeaderCodes} from "../ifaces";
+import { Buffer } from "buffer";
 
 /* WriteBuffer over-allocation */
 const BUFFER_INC_SIZE: number = 4096;

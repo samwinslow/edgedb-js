@@ -52,6 +52,7 @@ import type {$expr_Update} from "./update";
 import type {$expr_Alias, $expr_With} from "./with";
 import type {$expr_Group, GroupingSet} from "./group";
 import type {$expr_Global} from "./globals";
+import { Buffer } from "buffer";
 
 export type SomeExpression =
   | $expr_PathNode

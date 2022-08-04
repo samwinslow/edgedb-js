@@ -19,6 +19,7 @@
 import {ReadBuffer, WriteBuffer} from "../primitives/buffer";
 import {ICodec, ScalarCodec} from "./ifaces";
 import {InvalidArgumentError} from "../errors";
+import { Buffer } from "buffer";
 
 export class StrCodec extends ScalarCodec implements ICodec {
   encode(buf: WriteBuffer, object: any): void {

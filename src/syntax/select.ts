@@ -47,6 +47,7 @@ import {
   literalToScalarType,
   literalToTypeSet,
 } from "@generated/castMaps";
+import { Buffer } from "buffer";
 
 export const ASC: "ASC" = "ASC";
 export const DESC: "DESC" = "DESC";

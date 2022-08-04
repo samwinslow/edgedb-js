@@ -18,6 +18,7 @@
 
 import {randomBytes, H, HMAC} from "./adapter.node";
 import {ProtocolError} from "./errors";
+import { Buffer } from "buffer";
 
 export {H, HMAC};
 
