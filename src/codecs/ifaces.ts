@@ -18,7 +18,6 @@
 
 import {ReadBuffer, WriteBuffer} from "../primitives/buffer";
 import {KNOWN_TYPES} from "./consts";
-import { Buffer } from "buffer";
 
 export type uuid = string;
 

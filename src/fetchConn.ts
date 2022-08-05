@@ -22,7 +22,6 @@ import {PROTO_VER, BaseRawConnection} from "./baseConn";
 import Event from "./primitives/event";
 import * as chars from "./primitives/chars";
 import {InternalClientError, ProtocolError} from "./errors";
-import { Buffer } from "buffer";
 
 // @ts-ignore
 if (typeof fetch === "undefined") {
