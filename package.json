@@ -1,5 +1,5 @@
 {
-  "name": "edgedb",
+  "name": "@samwinslow/edgedb",
   "version": "0.21.2",
   "description": "The official Node.js client library for EdgeDB",
   "homepage": "https://edgedb.com/docs",
@@ -56,5 +56,8 @@
     "compileForDeno": "deno run --unstable --allow-env --allow-read --allow-write tools/compileForDeno.ts",
     "dev": "yarn tsc --project tsconfig.build.json --incremental && yarn copy:syntax && cd qb && yarn generate",
     "dev:watch": "nodemon -e ts -w ./src -x 'yarn dev'"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
   }
 }
