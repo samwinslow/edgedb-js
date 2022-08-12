@@ -1,6 +1,6 @@
 {
   "name": "@samwinslow/edgedb",
-  "version": "0.21.2",
+  "version": "0.21.20",
   "description": "The official Node.js client library for EdgeDB",
   "homepage": "https://edgedb.com/docs",
   "author": "EdgeDB <info@edgedb.com>",
@@ -197,7 +197,6 @@
     "fs-minipass": "^2.1.0",
     "fs.realpath": "^1.0.0",
     "function-bind": "^1.1.1",
-    "fsevents": "^2.3.2",
     "gauge": "^2.7.4",
     "get-caller-file": "^2.0.5",
     "get-package-type": "^0.1.0",
