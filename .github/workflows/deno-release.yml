@@ -26,7 +26,7 @@ jobs:
 
       - uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.17.x
+          deno-version: v1.24.x
 
       - name: Install dev deps
         run: |
@@ -43,7 +43,7 @@ jobs:
 
       - name: Compile for Deno
         run: |
-          yarn compileForDeno
+          yarn build:deno
 
       - name: Push to edgedb-deno
         run: ./.github/workflows/push-edgedb-deno.sh

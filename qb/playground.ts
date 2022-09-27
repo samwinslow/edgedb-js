@@ -1,22 +1,15 @@
 // tslint:disable:no-console
-
 import {setupTests} from "./test/setupTeardown";
 import e from "./dbschema/edgeql-js";
+import {createClient} from "edgedb";
 
 async function run() {
-  const {client} = await setupTests();
-  console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~`);
+  await setupTests();
 
-  const insertHero = e.insert(e.Hero, {
-    id: "00000000-0000-0000-0000-000000000000",
-    name: "asdf",
-  });
-  console.log(insertHero.toEdgeQL());
-  await insertHero.run(client);
+  const client = createClient();
 
-  const query = e.delete(e.Hero, hero => ({
-    filter: e.op(hero.id, "=", e.uuid("00000000-0000-0000-0000-000000000000")),
-  }));
+  const query = e.set(...[]);
+
   console.log(query.toEdgeQL());
   const result = await query.run(client);
   console.log(result);

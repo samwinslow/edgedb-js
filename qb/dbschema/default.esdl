@@ -1,7 +1,7 @@
 
 module default {
 
-  scalar type Genre extending enum<Horror, Action, RomCom>;
+  scalar type Genre extending enum<"Horror", "Action", "RomCom", "Science Fiction">;
   global uuid_global -> uuid;
   global num_global -> int64;
   global arr_global -> array<str>;
@@ -36,7 +36,7 @@ module default {
     link nemesis -> Hero;
   }
 
-  type Hero extending Person {
+type Hero extending Person {
     property secret_identity -> str;
     property number_of_movies -> int64;
     multi link villains := .<nemesis[IS Villain];

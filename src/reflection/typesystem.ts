@@ -1,5 +1,5 @@
 import type {Executor} from "../ifaces";
-import type {$expr_TypeIntersection, $pathify, $expr_PathNode} from "./path";
+import type {$expr_PathNode, $expr_TypeIntersection, $pathify} from "./path";
 import type {$expr_Literal} from "./literal";
 import type {$expr_Operator} from "./funcops";
 import type {typeutil} from "./util/typeutil";
@@ -182,13 +182,12 @@ export type ExpressionMethods<Set extends TypeSet> = {
 //////////////////
 export interface EnumType<
   Name extends string = string,
-  TsType extends any = any
+  Values extends [string, ...string[]] = [string, ...string[]]
 > extends BaseType {
   __kind__: TypeKind.enum;
-  __tstype__: TsType;
+  __tstype__: Values[number];
   __name__: Name;
-  __values__: string[];
-  // (val: TsType | Vals): $expr_Literal<this>;
+  __values__: Values;
 }
 
 //////////////////
@@ -663,13 +662,13 @@ export type BaseTypeToTsType<Type extends BaseType> = Type extends ScalarType
   : Type extends EnumType
   ? Type["__tstype__"]
   : Type extends ArrayType<any>
-  ? ArrayTypeToTsType<Type>
+  ? typeutil.flatten<ArrayTypeToTsType<Type>>
   : Type extends RangeType
   ? Range<Type["__element__"]["__tsconsttype__"]>
   : Type extends TupleType
   ? TupleItemsToTsType<Type["__items__"]>
   : Type extends NamedTupleType
-  ? NamedTupleTypeToTsType<Type>
+  ? typeutil.flatten<NamedTupleTypeToTsType<Type>>
   : Type extends ObjectType
   ? typeutil.flatten<
       computeObjectShape<Type["__pointers__"], Type["__shape__"]>
@@ -764,6 +763,7 @@ export type AnyTupleType = TupleType | NamedTupleType;
 
 export type ParamType =
   | ScalarType
+  | EnumType
   | ArrayType<
       | ScalarType
       | TupleType<typeutil.tupleOf<ParamType>>

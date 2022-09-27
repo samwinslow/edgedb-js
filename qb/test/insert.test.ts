@@ -365,3 +365,12 @@ test("insert custom ID", async () => {
     }))
     .run(client);
 });
+
+test("empty arrays for array and multi properties", async () => {
+  const query = e.insert(e.Bag, {
+    stringsMulti: ["asdf"],
+    stringMultiArr: [],
+    stringsArr: [],
+  });
+  const result = await query.run(client);
+});
